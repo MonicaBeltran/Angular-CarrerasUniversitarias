@@ -1,0 +1,50 @@
+
+
+<!-- Nanvar-->
+<nav class="navbar navbar-expand-lg  navbar-dark" style="background-color: #2471A3;">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">CRUD de Carreras con SpringBoot y Angular</a>
+
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav right">
+
+                <li class="nav-item">
+                    <a href="#" routerLink="/post/create/" class="btn btn-succes">Registrar Carrera</a>
+
+                </li>
+            </ul>
+        </div>
+    </div>
+  </nav>
+
+
+
+<!-- Tabla-->
+    <table class="table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Estado</th>
+                <th width="280px">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let post of posts">
+                <td>{{post.id}}</td>
+                <td>{{post.nombrecarrera}}</td>
+                <td>{{post.estado}}</td>
+                <td>
+
+                    <a href="#" [routerLink]="['/carreras/', post.id, 'view']" class="btn btn-outline-warning">Ver</a>
+                    <a href="#" [routerLink]="['/carreras', post.id, 'edit']" class="btn btn-outline-success">Editar</a>
+                    <button type="button" (click)="deletePost(post.id)" class="btn btn-outline-danger">Delete</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+
+
+
+

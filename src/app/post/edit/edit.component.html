@@ -1,0 +1,33 @@
+<div class="container">
+    <h1>Actualizar Carrera</h1>
+    <a href="#" routerLink="/post/index" class="btn btn-primary">Atras</a>
+
+    <form [formGroup]="form" (ngSubmit)="submit()">
+
+        <div class="form-group">
+            <label for="id">ID</label>
+            <input formControlName="id" id="id" type="text" [(ngModel)]="post.id" class="form-control">
+            <div *ngIf="f['id'].touched && f['id'].invalid" class="alert alert-danger">
+                <div *ngIf="f['id'].errors && f['id'].errors ['required']">ID es requerido
+                </div>
+            </div>
+        </div>
+        <div class="formGroup">
+            <label for="nombrecarrera">Nombre</label>
+            <textarea formControlName="nombrecarrera" id="nombrecarrera" type="text"[(ngModel)]="post.nombrecarrera"  class="form-control"></textarea>
+            <div *ngIf="f['nombrecarrera'].touched && f['nombrecarrera'].invalid" class="alert alert-danger">
+                <div *ngIf="f['nombrecarrera'].errors && f['nombrecarrera'].errors['required']">El Nombre de la carrera es requerido</div>
+            </div>
+        </div>
+
+        <div class="formGroup">
+            <label for="estado">Estado</label>
+            <textarea formControlName="estado" id="estado" type="text" [(ngModel)]="post.estado" class="form-control"></textarea>
+            <div *ngIf="f['estado'].touched && f['estado'].invalid" class="alert alert-danger">
+                <div *ngIf="f['estado'].errors && f['estado'].errors['required']">Estado requerido</div>
+            </div>
+        </div>
+
+        <button class="btn btn-primary" type="submit" [disabled]="!form.valid">Actualizar</button>
+    </form>
+</div>
